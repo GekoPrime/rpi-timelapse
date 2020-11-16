@@ -14,7 +14,7 @@ PASS="BEHIND85TEXAS"
 # Output DIR
 DIR="/home/pi/timelapse-photos"
 mkdir $DIR
-NAME=`date +%d-%m-%Y_%H:%M:%S`
+NAME=`date +%Y-%m-%d_%H:%M:%S`
 for webcam_host in $WEBCAM_HOSTS; do
 	mkdir $DIR/$webcam_host
 	wget --no-check-certificate --no-verbose --user $USER --password $PASS 192.168.42.$webcam_host$WEBCAM_SNAPSHOT_PATH -O $DIR/$webcam_host/$NAME.jpg
@@ -22,4 +22,4 @@ for webcam_host in $WEBCAM_HOSTS; do
 done
 
 mkdir $DIR/DCIM
-gphoto2 --no-keep --capture-image-and-download --filename $DIR/DCIM/%d-%m-%Y_%H:%M:%S.jpg
+gphoto2 --no-keep --capture-image-and-download --filename $DIR/DCIM/$NAME.jpg
