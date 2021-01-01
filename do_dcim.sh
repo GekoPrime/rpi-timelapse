@@ -11,5 +11,6 @@ NAME=`date +%Y-%m-%d_%H:%M:%S`
 SHARE="/home/pi/shared"
 
 mkdir $DIR/DCIM
-gphoto2 --no-keep --capture-image-and-download --filename $DIR/DCIM/$NAME.jpg
+rm $SHARE/DCIM.jpg
 gphoto2 --no-keep --capture-image-and-download --filename $SHARE/DCIM.jpg
+cp $SHARE/DCIM.jpg $DIR/DCIM/$NAME.jpg
